@@ -6,7 +6,8 @@ import DeadMelo from '../Assets/img/DeadMelo.jpg';
 import FatMelo from '../Assets/img/FatMelo.jpg';
 import BoredHungryMelo from '../Assets/img/boredHungry.jpg';
 import PlayfulMelo from '../Assets/img/PlayfulMelo.jpg';
-
+import Feed from './Feed'
+import Play from './Play'
 
 class App extends React.Component {
     constructor(props) {
@@ -75,7 +76,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Tomagatchi image={this.state.image} hungerLevel={this.state.hunger} boredomLevel={this.state.boredom} onFeed={this.handleFeedingGatchi} onPlay={this.handlePlayingGatchi} />
+                <Tomagatchi image={this.state.image}  />
+                <Feed onFeed={this.handleFeedingGatchi} hungerLevel={this.state.hunger}/>
+                <Play onPlay={this.handlePlayingGatchi} playLevel={this.state.boredom} />
             </div>
 
         );
