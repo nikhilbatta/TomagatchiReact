@@ -1,6 +1,6 @@
 import React from 'react';
-import Feed from './Feed';
-import Play from './Play';
+// import Feed from './Feed';
+// import Play from './Play';
 import PropTypes from 'prop-types';
 import 'materialize-css/dist/css/materialize.min.css';
 
