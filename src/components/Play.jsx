@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Bar from './Bar';
+
 
 function Play(props){
 //   function handlePlayClick(){
@@ -8,7 +8,7 @@ function Play(props){
 //   }
   return (
     <div>
-       <Bar playLevel={props.playLevel} height={props.height}/>
+       
       <button onClick={props.onPlay}>Play</button>
     </div>
   );

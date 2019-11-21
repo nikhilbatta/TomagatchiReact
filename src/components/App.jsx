@@ -8,6 +8,7 @@ import BoredHungryMelo from '../Assets/img/boredHungry.jpg';
 import PlayfulMelo from '../Assets/img/PlayfulMelo.jpg';
 import Feed from './Feed';
 import Play from './Play';
+import Bar from './Bar'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,8 +16,7 @@ class App extends React.Component {
     this.state = {
       hunger: 70,
       boredom: 70,
-      image: HappyFull,
-      height: "100px"
+      image: HappyFull
     };
     this.handleFeedingGatchi = this.handleFeedingGatchi.bind(this);
     this.handlePlayingGatchi = this.handlePlayingGatchi.bind(this);
@@ -28,15 +28,29 @@ class App extends React.Component {
       this.handleHungerState(),
     5000
     );
+    this.waitForPlay = setInterval(() =>
+    this.handlePlayState(),
+    5000
+    )
   }
 
   handleHungerState() {
-    let newCount = this.state.hunger - 5;
-    let newBoredCount = this.state.boredom - 5;
-    this.setState({ hunger: newCount });
-    this.setState({ boredom: newBoredCount });
+    if(this.state.hunger > 0) 
+    {
+      var newCount = this.state.hunger - 5;
+      this.setState({ hunger: newCount });
+     
+    }
+    
+
     this.handleMeloImage();
 
+  }
+  handlePlayState(){
+    if(this.state.boredom > 0 ){
+      let newBoredCount = this.state.boredom - 5;
+      this.setState({ boredom: newBoredCount });
+    }
   }
 
   handleMeloImage() {
@@ -79,7 +93,9 @@ class App extends React.Component {
       <div>
         <Tomagatchi image={this.state.image}  />
         <Feed onFeed={this.handleFeedingGatchi} hungerLevel={this.state.hunger}/>
+        <Bar level={this.state.hunger}/>
         <Play onPlay={this.handlePlayingGatchi} playLevel={this.state.boredom} height={this.state.height}/>
+        <Bar level={this.state.boredom}/>
       </div>
 
     );

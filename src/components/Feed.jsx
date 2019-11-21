@@ -6,7 +6,7 @@ function Feed(props){
 //   }
   return (
     <div>
-      <p>{props.hungerLevel}</p>
+    
       <button onClick={props.onFeed}>Feed</button>
     </div>
   );

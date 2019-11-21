@@ -1,17 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 
 
 function Bar(props){
     
-    var playLevelCopy = String(props.playLevel) + 'px';
-    
-    console.log(playLevelCopy)
+    var level = String(props.level) + 'px';
+    console.log(level)
     var bar = {
         width: "50px",
         maxHeight: "400px",
-        height: playLevelCopy,
+        height: level,
         background: "blue"
     }
     
@@ -19,14 +16,13 @@ function Bar(props){
     return (
         <div>
             <div style={bar}>
-                <p>{props.playLevel}</p>
+                
             </div>
+            <p>{props.level}</p>
         </div>
     )
 }
-Bar.propTypes = {
-    height: PropTypes.string,
-};
+
 
 
 export default Bar;
